@@ -1,0 +1,45 @@
+{%extends 'layout.html'%}
+{%block content%}
+	<div class="content-section">
+		<form method="POST" action="">
+			{{form.hidden_tag()}}
+			<fieldset class="form-group">
+
+				<legend class="border-bottom mb-4">ML Project - Salary Prediction</legend>
+				
+				<div style="font-size:20px">
+					{{form.number.label(class="form-control-label")}}
+
+					{% if form.number.errors %}
+                        {{ form.number(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.number.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.number(class="form-control form-control-lg") }}
+                    {% endif %}			
+				</div>					
+												
+			</fieldset>
+
+			<div class="form-group">
+				{{form.submit(class="btn btn-outline-info")}}				
+			</div>		
+				
+		</form>					
+	</div>
+	<div class="border-top pt-3">
+        <div style="font-size:30px">
+        	{{a}}
+        </div>
+    </div>
+    <div class="border-top pt-3">
+        <div style="color:red">
+            This Prediction is based on Some Randome Sample Data.
+            Please do not compare with your current Salary
+        </div>
+    </div>
+	
+{%endblock%}
